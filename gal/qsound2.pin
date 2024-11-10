@@ -1,0 +1,29 @@
+
+
+ Pin # | Name     | Pin Type
+-----------------------------
+   1   | E        | Clock/Input
+   2   | A19      | Input
+   3   | A18      | Input
+   4   | A13      | Input
+   5   | A12      | Input
+   6   | /DS      | Input
+   7   | MEMSEL   | Input
+   8   | A1       | Input
+   9   | WR       | Input
+  10   | BC1      | Input
+  11   | BDIR     | Input
+  12   | GND      | GND
+  13   | NC       | Input
+  14   | /YMCS    | Output
+  15   | /YMWR    | Output
+  16   | /YMRD    | Output
+  17   | YMA0     | Output
+  18   | DSMC     | Output
+  19   | /CS2     | Output
+  20   | /VPA     | Output
+  21   | NC       | NC
+  22   | DIR245   | Output
+  23   | /CS245   | Output
+  24   | VCC      | VCC
+

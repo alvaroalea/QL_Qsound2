@@ -1,0 +1,99 @@
+GAL22V10
+Qsound2
+;Revision        00;
+;Date            14/08/2024;
+;Designer        Alvaro ALea;
+
+;1 2  3   4   5    6  7      8  9  10  11   12
+E A19 A18 A13 A12 /DS MEMSEL A1 WR BC1 BDIR GND
+NC /YMCS /YMWR /YMRD YMA0 DSMC /CS2 /VPA NC DIR245 /CS245 VCC
+;13 14  15    16     17   18   19   20  21 22     23    24
+
+CS2   = DS * A19 * A18 * MEMSEL * /A13
+      + DS * A19 * A18 * MEMSEL *  A13 * /A12
+
+DSMC = DS * A19 * A18 * MEMSEL
+
+VPA  = DSMC * /E
+
+CS245 = DS * A19 * A18 * MEMSEL *  A13 *  A12
+DIR245 = /WR
+
+YMCS = DS * A19 * A18 * MEMSEL *  A13 * /A12 *  BDIR
+     + DS * A19 * A18 * MEMSEL *  A13 * /A12 *  BC1
+
+     + DS * A19 * A18 * MEMSEL *  A13 *  A12
+
+YMRD = DS * A19 * A18 * MEMSEL *  A13 * /A12 * /BDIR * BC1
+
+     + DS * A19 * A18 * MEMSEL *  A13 *  A12 * WR
+
+YMWR = DS * A19 * A18 * MEMSEL *  A13 * /A12 *  BDIR
+
+     + DS * A19 * A18 * MEMSEL *  A13 *  A12 * /WR
+
+YMA0 = DS * A19 * A18 * MEMSEL *  A13 * /A12 *  BDIR * /BC1
+     + DS * A19 * A18 * MEMSEL *  A13 * /A12 * /BDIR *  BC1
+
+     + DS * A19 * A18 * MEMSEL *  A13 *  A12 * A1
+
+DESCRIPTION
+Logic for select devices on Sinclair QL Soundcard.
+
+ROM address is partially decoded, it use A13 as /OE an decoding of /CS is for the whole 16Kb used by the interfaz.
+
+Original Qsound PIA has A13 to a non negated CS, so it's activeted for the top 8Kb of the space.
+
+CS2 will ve active for the initial 12Kb, to allow ROM and PIA work but reserved 4K for direct access to PSG.
+
+CS245 activate the buffer for the last 4K.
+
+DSMC and VPA are activate for the whole 16Kb. (ROM + PIA + Direct Access)
+
+I do not rember why I do not link DIR245 to RW directly (and reverse A & B)
+
+Now the TRICK & the MESH:
+Based on A12, we activate PSG with signal from PIA or with signals from 68K
+
+but YM2203 has diferent pins that AY-3-8910:
+
+AY-3-8910 (Considering that BC2 tied to VCC, A8 to VCC and /A9 to GND)
+BDIR BC1
+ 0    0  => Inactive
+ 0    1  => Read Register Value
+ 1    0  => Write Register Value
+ 1    1  => Write Address Register
+
+Noted is not possible to Read back the actual Address Register
+
+YM2203
+CS WR RD A0
+1  x  x  x  => Inactive
+0  1  1  x  => Illegal
+0  0  1  0  => Write Address Register
+0  0  1  1  => Write Register Value
+0  1  0  0  => Read Status
+0  1  0  1  => Read Register Value
+
+
+PURE QSOUND:
+CS245 = VCC
+DIR245 = GND
+YMCS = BDIR + BC1
+YMRD  = /BDIR * BC1
+YMWR  = BDIR
+YMA0 = BDIR * /BC1 + /BDIR * BC1
+
+
+PURE PLUS:
+CS245 = VCC
+DIR245 = GND
+YMCS = A12
+YMRD  = WR
+YMWR  = /WR
+YMA0 = A1
+
+I consider to use A1 instead of A0 to align read and writes to 16bit,
+really I don't know if this is usefull, but I think that can speed-up the I/O
+
+
