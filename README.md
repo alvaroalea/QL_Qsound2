@@ -1,4 +1,4 @@
-#Sinclair QL Qsound2+
+# Sinclair QL Qsound2+
 ## Soundcard compatible with QsoundQprint for Sinclair QL
 
 (C) 2024 Alvaro Alea Fernandez
@@ -16,23 +16,15 @@ I upgrade the original desing:
 
 - Remain compatible with Qsound (include a jumper to select internal clock reference as in Qsound)
 
-This project can not be possible without the help of silvester, that tracked a fault in the schematic and Marcel Kilgus that develop a new ROM with a qsound device and a pt3 player.
-
-I test with ROM versions 1.10, 1.31 and 1.40 and work as expected, new ROM do not have the printer routines, but have a new options used by the pt3 player. 
-
 You can use a 2764 eprom or a W27C512 flash, that is much more cheap and easy to use.
 
-This board user the default Motorola 68K inteface as described in the documentation of AY-3-8910 PSG. with a 6821 PIA as a glue between the QL and the PSG, in the info folder you can found aditional information about this chips or the interface.
-
-The card have full 8bit I/O in the PSG without use, and another 8 bits in the PIA, also the pins of the paralel port are directly wired to the PSG, and are bidirectional, so can be used for other propouses.
-
-The board use the E signal as a clock for the PSG, this cause that the PSG work in a very low frecuency, below the minimun indicated in the datasheet, and also this cause that tunes from Spectrum or other systems, can not be directly converted.
+Refer to the original repository for more information about Qsound: https://github.com/alvaroalea/QL_QsoundQprint_clone
 
 ![My image](QL_Qsound_1.png) 
 
 ![My image](QL_Qsound_2.png) 
 
-## TEchnical details:
+## Technical details:
 The Card reserve 16Kb of Memory space following Sinclair's P'N'P Way, this mean that is not compatible with 768Kb Trump Card, and that in most of the QL will end on the 0xC0000 - 0xC3FFFF.
 
 The first 8Kb are occuped by the ROM
