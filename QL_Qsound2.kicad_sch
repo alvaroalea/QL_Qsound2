@@ -7,7 +7,7 @@
 	(title_block
 		(title "QSound 2+  for Sinclair QL")
 		(date "2024-11-10")
-		(rev "1")
+		(rev "2")
 		(company "Alvaro Alea Fdz")
 	)
 	(lib_symbols
@@ -11586,6 +11586,16 @@
 	)
 	(wire
 		(pts
+			(xy 187.96 177.8) (xy 187.96 176.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "39a37055-9551-4ce1-a5d8-b68a3f750f1f")
+	)
+	(wire
+		(pts
 			(xy 189.23 213.36) (xy 199.39 213.36)
 		)
 		(stroke
@@ -12666,6 +12676,16 @@
 	)
 	(wire
 		(pts
+			(xy 187.96 176.53) (xy 191.77 176.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7e0955db-ad8e-4493-a534-8a57837d4a69")
+	)
+	(wire
+		(pts
 			(xy 201.93 102.87) (xy 212.09 102.87)
 		)
 		(stroke
@@ -13446,7 +13466,7 @@
 	)
 	(wire
 		(pts
-			(xy 191.77 162.56) (xy 191.77 170.18)
+			(xy 191.77 162.56) (xy 191.77 176.53)
 		)
 		(stroke
 			(width 0)
@@ -14566,7 +14586,7 @@
 	)
 	(wire
 		(pts
-			(xy 170.18 170.18) (xy 191.77 170.18)
+			(xy 166.37 177.8) (xy 187.96 177.8)
 		)
 		(stroke
 			(width 0)
@@ -16423,7 +16443,7 @@
 		(uuid "d4d7ecbc-2e16-46c2-8b44-2a7324bce555")
 	)
 	(label "E"
-		(at 173.99 170.18 0)
+		(at 170.18 177.8 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -17586,17 +17606,16 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "36a43cf2-a3ae-4ed8-82fb-3e6e366cf0de")
 		(property "Reference" "X1"
-			(at 179.07 146.2121 0)
+			(at 177.8 146.0814 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "2Mhz"
+		(property "Value" "4Mhz"
 			(at 181.61 148.7521 0)
 			(do_not_autoplace yes)
 			(effects
@@ -22364,7 +22383,7 @@
 				)
 			)
 		)
-		(property "Value" "2Mhz"
+		(property "Value" "4Mhz"
 			(at 203.2 148.7521 0)
 			(do_not_autoplace yes)
 			(effects

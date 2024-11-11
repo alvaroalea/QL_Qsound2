@@ -1,6 +1,8 @@
 # Sinclair QL Qsound2+
 ## Soundcard compatible with QsoundQprint for Sinclair QL
 
+WARNING!!!  Actually there is a problem with this design and is not Fully Compatible with QSound, because the music sound at half frecuency, so it's out of tune.
+
 (C) 2024 Alvaro Alea Fernandez
 
 License under: CERN Open Hardware Licence Version 2 - Strongly Reciprocal
