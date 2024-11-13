@@ -1,7 +1,7 @@
 # Sinclair QL Qsound2+
 ## Soundcard compatible with QsoundQprint for Sinclair QL
 
-WARNING!!!  Actually there is a problem with this design and is not Fully Compatible with QSound, because the music sound at half frecuency, so it's out of tune.
+WARNING!!!  Actually there is a problem with this design and is not Fully Compatible with QSound, still need to do more test, music sound at half frecuency, so it's out of tune, and probably effects will be diferents.
 
 (C) 2024 Alvaro Alea Fernandez
 
@@ -37,11 +37,11 @@ The last 4Kb are used for direct access to the YM2203, it use also A1, so there 
 
 Write 0xC3000 ->  Write Address Register
 
-Read  0xC3000 -> Read Read Status
+Read  0xC3000 -> Read Status
 
 Write 0xC3002 -> Write Register Value
 
-Read  0xC3002 -> Read Read Register Value
+Read  0xC3002 -> Read Register Value
 
 There is no way to know which Clock is selected or Stereo type, this is handmade selections.
 
